@@ -1,24 +1,22 @@
-const data = [
-  {'width': 200, 'height': 100, 'fill': 'purple'},
-  {'width': 100, 'height': 60, 'fill': 'pink'},
-  {'width': 30, 'height': 100, 'fill': 'green'}
-];
-
+// select svg container
 const svg = d3.select('svg');
 
-// add attrs to rect already in the DOM
-const rects = svg.selectAll('rect')
-  .data(data)
-  .attr('width', (d, i, n) => d.width)
-  .attr('height', (d, i, n) => d.height)
-  .attr('fill', (d, i, n) => d.fill);
+d3.json('planets.json')
+  .then(data => {
+    const circs = svg.selectAll('circle')
+      .data(data);
 
+    // add circs to data already in DOM
+    circs.attr('cy', 200)
+      .attr('cx', d => d.distance)
+      .attr('r', d => d.radius)
+      .attr('fill', d => d.fill);
 
-// append the enter selection to DOM
-rects.enter()
-  .append('rect')
-  .attr('width', (d, i, n) => d.width)
-  .attr('height', (d, i, n) => d.height)
-  .attr('fill', (d, i, n) => d.fill);
-
-  console.log(rects)
+    // append the enter selection to the DOM
+    circs.enter()
+      .append('circle')
+      .attr('cy', 200)
+      .attr('cx', d => d.distance)
+      .attr('r', d => d.radius)
+      .attr('fill', d => d.fill);
+  })
