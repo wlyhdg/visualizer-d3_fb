@@ -7,6 +7,33 @@
 </head>
 <body>
   <div class="canvas"></div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCsTKdteob3IEDFxq6mgioyFPpe4qbmK2M",
+      authDomain: "d3-firebase-2c2ef.firebaseapp.com",
+      databaseURL: "https://d3-firebase-2c2ef.firebaseio.com",
+      projectId: "d3-firebase-2c2ef",
+      storageBucket: "d3-firebase-2c2ef.appspot.com",
+      messagingSenderId: "1066962659353",
+      appId: "1:1066962659353:web:a54854ae7c23371f65e288",
+      measurementId: "G-VV2K88N8DX"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    firebase.analytics();
+  </script>
+
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="index.js"></script>
 </body>
